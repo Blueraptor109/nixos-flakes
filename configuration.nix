@@ -18,6 +18,11 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  fonts.fontconfig.enable = true;
+  fonts.packages = with pkgs; [
+  font-awesome
+  nerd-fonts.symbols-only
+  ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -45,9 +50,9 @@
   };
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-  #programs.niri.enable = true;
+  #services.displayManager.gdm.enable = true;
+  #services.desktopManager.gnome.enable = true;
+  programs.niri.enable = true;
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -117,12 +122,24 @@
      ghostty
      nwg-displays
      prismlauncher
-     fastfetch
      git
      tealdeer
      xclip
      bat
      appimage-run
+     webkitgtk_4_1
+     xwayland-satellite
+     waybar
+     font-awesome
+     nerd-fonts.symbols-only
+     nemo
+     curl
+     p7zip
+     obs-studio
+     vlc
+     awww
+     spotify
+     fetch
     ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
