@@ -94,26 +94,10 @@
   };
 };
 
-  programs.zsh = {
-    enable = true;
-    enableBashCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-  };
 
-  programs.zsh.ohMyZsh = {
-    enable = true;
-    plugins = [ "git" ];
-    custom = "$HOME/.oh-my-zsh/custom/";
-    theme = "powerlevel10k/powerlevel10k";
-  };
-
- users.users.brayden = {
-   shell = pkgs.zsh;
-};
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  programs.git.enable = true;
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -165,12 +149,13 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
    environment.systemPackages = with pkgs; [
-     neovim
+     emacs
      wget
      mangohud
      protonup-qt
      vesktop
-     kitty
+     fuzzel
+     ghostty
      nwg-displays
      prismlauncher
      git
@@ -198,13 +183,6 @@
      rofi
      waybar
      swaynotificationcenter
-     libnotify
-     oh-my-zsh
-     zsh-powerlevel10k
-     vscodium
-     dracula-theme
-     nwg-look
-     ristretto
     ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
