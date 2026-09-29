@@ -67,7 +67,7 @@
     LC_NAME = "en_US.UTF-8";
     LC_NUMERIC = "en_US.UTF-8";
     LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";    
     LC_TIME = "en_US.UTF-8";
   };
 
@@ -80,17 +80,24 @@
   # layout = "us";
   # variant = "";
   #};
+  services.xserver = {
+    enable = true;
+    desktopManager = {
+      xterm.enable = false;
+      xfce.enable = true;
+    };
+  };
   programs.hyprland = {
     enable = true;
     withUWSM = true; # recommended for most users
     xwayland.enable = true; # Xwayland can be disabled.
   };
   services.displayManager = {
-  defaultSession = "hyprland";
+  defaultSession = "xfce";
   sddm = {
     enable = true;
     wayland.enable = true;
-    #theme = "your-chosen-theme";  # Replace with your desired theme
+    #theme = "astronaut";  # Replace with your desired theme
   };
 };
 
@@ -146,6 +153,8 @@
     hardware.graphics.enable32Bit = true;
     services.xserver.videoDrivers = [ "nvidia" ];
     hardware.nvidia.open = true;
+    hardware.nvidia.modesetting.enable = true;
+    hardware.nvidia.nvidiaSettings = true;
     services.flatpak.enable = true;
   # Install steam
   programs.steam = {
@@ -172,7 +181,7 @@
      vesktop
      kitty
      nwg-displays
-     prismlauncher
+     pandora-launcher
      git
      tealdeer
      xclip
@@ -189,14 +198,17 @@
      vlc
      tauon
      fetch
+     xinit
      spotify
      ddcutil
+     appimage-run
      awww
      sddm-astronaut
      qt6Packages.sddm
      zsh
      rofi
      waybar
+     pipes-rs
      swaynotificationcenter
      libnotify
      oh-my-zsh
@@ -205,6 +217,10 @@
      dracula-theme
      nwg-look
      ristretto
+     xrandr
+     rose-pine-hyprcursor
+     xfce4-whiskermenu-plugin
+     dracula-icon-theme
     ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
